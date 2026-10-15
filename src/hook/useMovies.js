@@ -10,6 +10,8 @@ export default function useMovies() {
     const controller = new AbortController();
     setLoading(true);
     setError("");
+    const response = await fetch('/movies.json');
+
 
     async function load() {
       try {

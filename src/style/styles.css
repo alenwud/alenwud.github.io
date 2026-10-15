@@ -1,0 +1,119 @@
+body {
+  margin: 0;
+  background: #101625;
+  color: #edf0f8;
+  --bs-body-color: #edf0f8;
+  --bs-body-bg: #101625;
+  --bs-secondary-color: #aebad1;
+  --bs-border-color: #53627d;
+}
+.app {
+  max-width: 1080px;
+  margin: auto;
+  padding: 32px 20px;
+}
+.hero {
+  padding: 28px;
+  margin-bottom: 24px;
+  border-radius: 20px;
+  background: #263047;
+}
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  margin: 10px 0;
+}
+.hero p {
+  max-width: 560px;
+  margin-bottom: 0;
+  color: #c7cfdf;
+}
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #f4ad67;
+}
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.toolbar input {
+  max-width: 420px;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+.movie {
+  padding: 22px;
+  border: 1px solid #34405a;
+  border-radius: 16px;
+  background: #1b2437;
+}
+.movie h2 {
+  font-size: 22px;
+  margin: 12px 0;
+}
+.movie p {
+  color: #c7cfdf;
+}
+.movie .description {
+  min-height: 48px;
+}
+.picture {
+  height: 100px;
+  display: grid;
+  place-items: center;
+  font-size: 64px;
+  color: #f4ad67;
+  background: #263047;
+  border-radius: 10px;
+}
+.btn-success {
+  --bs-btn-bg: #f4ad67;
+  --bs-btn-color: #101625;
+  --bs-btn-border-color: #f4ad67;
+  --bs-btn-hover-bg: #fbc38d;
+  --bs-btn-hover-color: #101625;
+  --bs-btn-hover-border-color: #fbc38d;
+}
+.btn-outline-success {
+  --bs-btn-color: #f4ad67;
+  --bs-btn-border-color: #f4ad67;
+  --bs-btn-hover-bg: #f4ad67;
+  --bs-btn-hover-color: #101625;
+  --bs-btn-hover-border-color: #f4ad67;
+}
+.empty {
+  padding: 28px;
+  border-radius: 16px;
+  background: #1b2437;
+}
+.request {
+  margin-top: 28px;
+  padding: 24px;
+  border-radius: 16px;
+  background: #263047;
+}
+.request form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: end;
+}
+.request h2 {
+  font-size: 24px;
+}
+.request label {
+  flex: 1;
+  min-width: 200px;
+}
+footer {
+  margin-top: 32px;
+  font-size: 14px;
+  color: #c7cfdf;
+}

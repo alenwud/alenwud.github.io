@@ -13,7 +13,7 @@ export default function useMovies() {
 
     async function load() {
       try {
-        const response = await fetch('https://github.io', {
+        const response = await fetch('dist/movies.json', {
           signal: controller.signal,
         });
 

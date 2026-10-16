@@ -13,7 +13,7 @@ export default function useMovies() {
 
     async function load() {
       try {
-   const response = await fetch(/public/movies.json, {
+   const response = await fetch('movies.json, {
           signal: controller.signal,
         });
         if (!response.ok) throw new Error("Не удалось загрузить фильмы.");

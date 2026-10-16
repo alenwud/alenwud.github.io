@@ -10,12 +10,11 @@ export default function useMovies() {
     const controller = new AbortController();
     setLoading(true);
     setError("");
-const response = await fetch('movies.json');
 
-
-async function load() {
+    async function load() {
       try {
-        const response = await fetch('https://github.io', {
+        // Указываем точный путь к файлу с фильмами
+        const response = await fetch('dist/movies.json', {
           signal: controller.signal,
         });
 

@@ -13,11 +13,12 @@ export default function useMovies() {
 const response = await fetch('movies.json');
 
 
-    async function load() {
+async function load() {
       try {
-        const response = await fetch(`${import.meta.env.BASE_URL}movies.json`, {
+        const response = await fetch('https://github.io', {
           signal: controller.signal,
         });
+
         if (!response.ok) throw new Error("Не удалось загрузить фильмы.");
         const data = await response.json();
         if (

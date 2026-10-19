@@ -1,0 +1,39 @@
+{
+  "lavaColors": [
+    {
+      "id": "default",
+      "name": "Default",
+      "sub": "(классический)",
+      "colorCode": "#ffffff"
+    },
+    {
+      "id": "neon",
+      "name": "Neon",
+      "sub": "(розовый)",
+      "colorCode": "#ff007f"
+    },
+    {
+      "id": "uranium",
+      "name": "Uranium-99",
+      "sub": "(зеленый)",
+      "colorCode": "#59fb29"
+    },
+    {
+      "id": "dark",
+      "name": "Dark mode",
+      "sub": "(угольный)",
+      "colorCode": "#222222"
+    }
+  ],
+  "boosters": [
+    { "id": "parsley", "name": "петрушка", "price": 40 },
+    { "id": "double_meat", "name": "х2 начинка (больше белка)", "price": 150 },
+    { "id": "spicy_sauce", "name": "острый соус (огненный)", "price": 50 },
+    { "id": "truffle_sauce", "name": "трюфельный соус", "price": 90 }
+  ],
+  "additional": [
+    { "id": "no_onion", "name": "без лука" },
+    { "id": "no_sauce", "name": "без соуса" }
+  ],
+  "basePrice": 690
+}

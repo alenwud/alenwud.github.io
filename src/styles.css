@@ -1,0 +1,1405 @@
+/* ==========================================
+   1. ШРИФТЫ И БАЗОВЫЕ НАСТРОЙКИ
+   ========================================== */
+
+@font-face {
+  font-family: "Unbounded";
+  src: url("/font/Unbounded-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg: #001021;
+  --neon-blue: #00d2ff;
+  --neon-pink: #ff007f;
+  --neon-green: #59fb29;
+  --white: #ffffff;
+  --text-muted: #8899a6;
+  --text-light: #ccd6dd;
+
+  --font-display: "Unbounded", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --glow-blue: 0 0 12px rgba(0, 210, 255, 0.7);
+  --glow-pink: 0 0 12px rgba(255, 0, 127, 0.7);
+  --glow-green: 0 0 12px rgba(89, 251, 41, 0.6);
+
+  --transition: 0.3s ease;
+  --container-width: 1400px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--white);
+  font-family: var(--font-body);
+  overflow-x: clip;
+}
+
+img {
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+}
+
+.app-container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: 60px;
+}
+
+/* ==========================================
+   2. ШАПКА САЙТА
+   ========================================== */
+
+.header {
+  position: relative;
+  isolation: isolate;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+
+  width: 100%;
+  min-height: 125px;
+  padding: 15px 40px;
+  margin-top: 30px;
+  margin-bottom: 80px;
+
+  border: none;
+  border-radius: 16px;
+
+  background: rgba(0, 16, 33, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.header-svg-bg {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+
+  z-index: -1;
+  pointer-events: none;
+  border-radius: initial;
+}
+
+.logo-container,
+.header-nav,
+.header-icons {
+  position: relative;
+
+  z-index: 1;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo-container img {
+  display: block;
+  width: 146px;
+  height: auto;
+  object-fit: contain;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 90px;
+
+  margin: 0;
+  padding: 0;
+}
+
+.header-nav p {
+  margin: 0;
+
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  transition:
+    color var(--transition),
+    text-shadow var(--transition);
+}
+
+.header-nav p:hover {
+  color: var(--neon-green);
+  text-decoration: underline;
+  text-decoration-color: var(--neon-green);
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 24px;
+}
+
+.icon-svg-btn {
+  display: block;
+  width: auto;
+  height: 40px;
+
+  cursor: pointer;
+  transition:
+    filter var(--transition),
+    transform var(--transition);
+}
+
+.icon-cart:hover,
+.icon-profile:hover {
+  filter: drop-shadow(0 0 12px var(--neon-blue)) brightness(1.3);
+  transform: scale(1.08);
+}
+
+.icon-svg-separator {
+  display: block;
+  width: auto;
+  height: 55px;
+
+  opacity: 0.8;
+  filter: drop-shadow(0 0 2px var(--neon-blue));
+  pointer-events: none;
+}
+
+.hr-2 {
+  height: -15px;
+  color: #59fb29;
+  filter: drop-shadow(0 0 2px var(--neon-green));
+  width: auto;
+  justify-content: center;
+}
+/* ==========================================
+   3. ГЛАВНЫЙ БАННЕР
+   ========================================== */
+
+.hero-section {
+  position: relative;
+  isolation: isolate;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  min-height: 650px;
+  padding: 40px 0;
+}
+
+.hero-info {
+  position: relative;
+  z-index: 5;
+
+  flex: 1 1 50%;
+  max-width: 650px;
+  min-width: 0;
+  margin-top: -200px;
+}
+
+h1.hero-title {
+  margin: 0 0 25px;
+
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: clamp(32px, 3.6vw, 50px);
+  font-weight: 900;
+  line-height: 1.24;
+  text-transform: uppercase;
+}
+
+.hero-subtitle {
+  margin: 0 0 40px;
+
+  color: var(--white);
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* Кнопка заказа */
+
+button.btn-order {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  max-width: 100%;
+  padding: 20px 30px;
+  margin: 40px 0 0;
+
+  background-color: var(--bg);
+  border: 2px solid var(--neon-green);
+  border-radius: 0;
+
+  color: var(--neon-blue);
+  font-family: var(--font-display);
+  font-size: clamp(15px, 1.7vw, 24px);
+  font-weight: 900;
+  letter-spacing: 2px;
+
+  cursor: pointer;
+  box-shadow: var(--glow-green);
+
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
+}
+
+button.btn-order span {
+  margin: 0 8px;
+  color: var(--white);
+  transition: color var(--transition);
+}
+
+button.btn-order:hover {
+  background-color: var(--neon-green);
+  color: var(--bg);
+  box-shadow: 0 0 25px var(--neon-green);
+}
+
+button.btn-order:hover span {
+  color: var(--bg);
+}
+
+button.btn-order:focus-visible,
+.btn-cart:focus-visible {
+  outline: 2px solid var(--neon-blue);
+  outline-offset: 5px;
+}
+
+/* ==========================================
+   4. ГОРОД И ИЗОБРАЖЕНИЕ ШАУРМЫ
+   ========================================== */
+.background-image {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  width: 52%;
+  min-width: 0;
+  isolation: isolate;
+}
+
+.background-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    var(--bg) 0%,
+    rgba(0, 16, 33, 0.9) 25%,
+    rgba(0, 16, 33, 0.4) 60%,
+    transparent 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+.background-image .bg-city {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: right center;
+
+  z-index: 1;
+}
+
+/* ИЗОБРАЖЕНИЕ ШАУРМЫ */
+.background-image .main-doner {
+  position: absolute;
+
+  bottom: 20px;
+  align-self: flex-end;
+
+  display: block;
+  width: 76%;
+  max-width: none;
+  height: auto;
+  object-fit: contain;
+
+  z-index: 3;
+  pointer-events: none;
+
+  transform: rotate(25.5deg);
+  transform-origin: center;
+  margin-right: 0;
+
+  filter: drop-shadow(0 0 30px rgba(255, 0, 127, 0.65));
+  transition:
+    transform var(--transition),
+    filter var(--transition);
+}
+
+/* ==========================================
+   5. РАЗДЕЛ МЕНЮ И НЕОНОВЫЕ ЛИНИИ
+   ========================================== */
+
+.menu-section {
+  margin-top: 60px;
+  margin-bottom: 80px;
+  width: 100%;
+}
+
+.menu-section-title {
+  margin: 0;
+  padding: 25px 0;
+
+  color: var(--neon-green);
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 900;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(0, 255, 102, 0.4);
+  overflow-wrap: break-word;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+}
+
+.menu-section-title .pink-slashes {
+  color: var(--neon-pink);
+  text-shadow: 0 0 10px rgba(255, 0, 127, 0.4);
+  margin-left: 15px;
+}
+
+.UP-title {
+  display: block;
+  margin: 0;
+  text-align: right;
+
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+hr.neon-line-blue {
+  height: 2px;
+  margin: 0;
+
+  border: 0;
+  background-color: var(--neon-blue);
+  opacity: 1;
+
+  box-shadow:
+    0 0 10px var(--neon-blue),
+    0 0 20px rgba(0, 210, 255, 0.6);
+}
+
+.menu-section hr.neon-line-blue:last-of-type {
+  margin-bottom: 50px;
+}
+
+/* ==========================================
+   6. СЕТКА КАРТОЧЕК
+   ========================================== */
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 30px;
+}
+
+/* ==========================================
+   7. КАРТОЧКА БЛЮДА
+   ========================================== */
+
+.menu-card {
+  position: relative;
+  min-width: 0;
+  padding: 24px;
+
+  background-color: var(--bg);
+  border: 2px solid var(--neon-green);
+  border-radius: 12px;
+
+  box-shadow: 0 0 15px rgba(89, 251, 41, 0.2);
+
+  transition:
+    box-shadow var(--transition),
+    transform var(--transition),
+    border-color var(--transition);
+}
+
+.menu-card:hover {
+  box-shadow: 0 0 25px rgba(89, 251, 41, 0.5);
+  transform: translateY(-5px);
+}
+
+/* Бейджи */
+
+.card-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 1;
+
+  padding: 4px 10px;
+  border-radius: 4px;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.card-badge.hot {
+  background-color: rgba(255, 0, 127, 0.2);
+  border: 1px solid var(--neon-pink);
+  color: var(--neon-pink);
+  box-shadow: 0 0 8px rgba(255, 0, 127, 0.7);
+}
+
+.card-badge.energy {
+  background-color: rgba(0, 210, 255, 0.2);
+  border: 1px solid var(--neon-blue);
+  color: var(--neon-blue);
+  box-shadow: 0 0 8px rgba(0, 210, 255, 0.7);
+}
+
+/* Изображение блюда */
+
+.card-image-container {
+  display: grid;
+  place-items: center;
+
+  height: 160px;
+  margin-bottom: 20px;
+}
+
+.card-img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+}
+
+.card-placeholder {
+  font-size: 72px;
+}
+
+/* Текст карточки */
+
+.card-category {
+  margin-bottom: 5px;
+
+  color: var(--text-muted);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.card-title {
+  margin: 0 0 12px;
+
+  color: var(--neon-blue);
+  font-size: 22px;
+  font-weight: 700;
+  overflow-wrap: break-word;
+}
+
+.card-title span {
+  color: var(--white);
+}
+
+.card-description {
+  min-height: 60px;
+  margin: 0;
+
+  color: var(--text-light);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Цена и кнопка корзины */
+
+.card-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  margin-top: 20px;
+}
+
+.card-price {
+  color: var(--white);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.btn-cart {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+
+  width: 45px;
+  height: 45px;
+  padding: 0;
+
+  background: transparent;
+  border: 1px solid var(--neon-green);
+  border-radius: 8px;
+
+  color: var(--neon-green);
+  font-size: 18px;
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
+}
+
+.btn-cart:hover,
+.btn-cart.added {
+  background-color: var(--neon-green);
+  color: var(--bg);
+  box-shadow: 0 0 12px var(--neon-green);
+}
+
+/* ==========================================
+   8. ПОЧЕМУ МЫ?
+   ========================================== */
+
+.why-section-title {
+  margin: 0;
+  padding: 25px 0;
+
+  color: var(--neon-green) !important;
+  text-shadow: 0 0 10px rgba(0, 255, 102, 0.4);
+
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 900;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+}
+
+.why-section-title .pink-slashes {
+  color: var(--neon-pink) !important;
+  text-shadow: 0 0 10px rgba(255, 0, 127, 0.4);
+  margin-left: 15px;
+}
+
+.why-section-title .UP-subtitle-text {
+  display: block;
+  margin: 0;
+  text-align: right;
+
+  font-family: var(--font-body), sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-muted) !important;
+  text-shadow: none !important;
+}
+
+.advantages-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 20px;
+}
+
+.advantage-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px 20px;
+}
+
+.adv-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 110px;
+  margin-bottom: 25px;
+}
+
+.adv-icon-wrapper img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+.advantage-card h3 {
+  margin: 0 0 15px 0;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.advantage-card p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.adv-separator {
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    var(--neon-blue),
+    transparent
+  );
+  box-shadow: var(--glow-blue);
+  opacity: 0.8;
+}
+.why-section .advantages-grid {
+  margin-top: 120px;
+}
+
+/* ==========================================
+   9. СТИЛИ ДЛЯ КОНСТРУКТОРА ДОНЕРОВ
+   ========================================== */
+.yellow-skobka {
+  color: #fbf729;
+  margin-inline: 4px;
+  text-shadow: 0 0 8px rgba(251, 247, 41, 0.2);
+}
+.maker-container {
+  display: flex;
+  align-items: center; /* Центрируем рамки по вертикали относительно друг друга */
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  margin-top: 50px;
+}
+
+/* ЛЕВЫЙ БОКС (РАМКА ДЛЯ ФОТО) */
+.maker-preview-box {
+  position: relative;
+  width: 420px; /* Ширина под пропорции Figma */
+  height: 520px; /* Высота под пропорции Figma */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.maker-preview-box .frame-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.dynamic-doner-img {
+  position: relative;
+  z-index: 2;
+  width: 105%;
+  height: 105%;
+  object-fit: contain;
+  transform: translate(0px, 5px);
+}
+
+/* ПРАВЫЙ БОКС (КОНТЕЙНЕР ФОРМЫ) */
+.maker-form-box {
+  position: relative;
+  width: 860px; /* Расширенная ширина под 4 элемента в ряд */
+  height: 520px; /* Высота, чтобы нижние чекбоксы не вываливались */
+  flex-shrink: 0;
+  box-sizing: border-box;
+
+  /* ИСПРАВЛЕНО: Сбалансировали и увеличили верхний padding до 65px (было 45px). */
+  /* Это плавно и аккуратно опустит всю структуру текста пониже внутрь рамки */
+  padding: 65px 50px 45px 50px;
+}
+
+/* Фоновая рамка формы из Figma */
+.maker-form-box .form-frame-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  z-index: 1;
+}
+
+/* Контент внутри правой рамки */
+.form-content {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Шапка формы с заголовком и ценой по краям */
+.form-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* ИСПРАВЛЕНО: Убрали ломающий отрицательный маргин -20px. */
+  /* Теперь здесь безопасный положительный отступ, который дает воздуху форме */
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.maker-price {
+  font-family: var(--font-display), sans-serif; /* Акцентный Unbounded */
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--neon-green);
+  text-shadow: 0 0 15px rgba(89, 251, 41, 0.7);
+  padding-right: 10px;
+}
+
+.options-group-title {
+  font-family: var(--font-display), sans-serif; /* Акцентный Unbounded */
+  font-size: 14px;
+  font-weight: 900;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+}
+
+/* СЕТКА ЛАВАШЕЙ: 4 штуки строго в один ряд */
+.color-options {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+/* СЕТКА БУСТЕРОВ: 4 штуки строго в один ряд */
+.boosters-options {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+/* СЕТКА ДОПОЛНИТЕЛЬНО: 2 штуки в ряд (занимает левую половину рамки) */
+.additional-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  width: 48%;
+}
+
+/* ОБЩИЕ СТИЛИ КНОПОК-ОПЦИЙ (Полностью прозрачные, без серых прямоугольников) */
+.color-btn,
+.check-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 8px;
+
+  /* Полная прозрачность по умолчанию */
+  background: rgba(0, 16, 33, 0.2);
+  border: 1px solid transparent;
+
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.color-btn input,
+.check-btn input {
+  display: none; /* Скрываем дефолтные кружки браузера */
+}
+
+/* ЭФФЕКТ ВЫДЕЛЕНИЯ ПРИ ХОВЕРЕ / КЛИКЕ */
+.color-btn:hover,
+.color-btn.active,
+.check-btn:hover,
+.check-btn.checked {
+  border-color: var(--neon-blue);
+  background: rgba(0, 210, 255, 0.08);
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.25);
+}
+
+/* Перекрашиваем эффекты кнопок бустеров в зеленый под стиль секции */
+.boosters-options .check-btn:hover,
+.boosters-options .check-btn.checked {
+  border-color: var(--neon-green);
+  background: rgba(89, 251, 41, 0.05);
+  box-shadow: 0 0 10px rgba(89, 251, 41, 0.2);
+}
+
+/* 1. КРУГЛЫЕ ПЕРЕКЛЮЧАТЕЛИ ЦВЕТА ЛАВАША */
+.color-btn .dot {
+  width: 22px; /* Увеличенный размер круга из Figma */
+  height: 22px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+  border: 2px solid transparent;
+  transition: var(--transition);
+}
+
+/* ЭФФЕКТ ВЫДЕЛЕНИЯ КРУГА ИЗ FIGMA (Контрастное кольцо вокруг точки) */
+.color-btn.active .dot {
+  border: 3px solid #001021;
+  outline: 2px solid var(--neon-pink);
+  box-shadow: 0 0 12px var(--neon-pink);
+}
+
+/* Индивидуальные цвета светящихся колец для каждого лаваша */
+.color-options label:nth-child(1).active .dot {
+  outline-color: #ffffff;
+  box-shadow: 0 0 12px #ffffff;
+}
+.color-options label:nth-child(2).active .dot {
+  outline-color: var(--neon-pink);
+  box-shadow: 0 0 12px var(--neon-pink);
+}
+.color-options label:nth-child(3).active .dot {
+  outline-color: var(--neon-green);
+  box-shadow: 0 0 12px var(--neon-green);
+}
+.color-options label:nth-child(4).active .dot {
+  outline-color: #444444;
+  box-shadow: 0 0 12px #444444;
+}
+
+/* 2. КВАДРАТНЫЕ ЧЕКБОКСЫ ИЗ FIGMA */
+.check-box-custom {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--text-muted);
+  border-radius: 3px;
+  position: relative;
+  flex-shrink: 0;
+  transition: var(--transition);
+  background: transparent;
+}
+
+/* Ховер на чекбоксе */
+.check-btn:hover .check-box-custom {
+  border-color: var(--neon-blue);
+}
+
+/* Сплошная неоново-синяя заливка для бустеров */
+.boosters-options .check-btn.checked .check-box-custom {
+  border-color: var(--neon-blue);
+  background-color: var(--neon-blue);
+  box-shadow: var(--glow-blue);
+}
+
+/* Сплошная neo-розовая заливка для раздела "Дополнительно" */
+.additional-options .check-btn.checked .check-box-custom {
+  border-color: var(--neon-pink);
+  background-color: var(--neon-pink);
+  box-shadow: var(--glow-pink);
+}
+
+/* Шрифты и цены внутри кнопок */
+.lava-text,
+.booster-name,
+.additional-name {
+  font-size: 12px;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.lava-text small {
+  display: block;
+  color: var(--text-muted);
+  font-size: 10px;
+}
+
+.booster-price {
+  margin-left: auto;
+  color: var(--neon-blue);
+  font-weight: 700;
+  font-size: 11px;
+}
+
+/* ПОЗИЦИОНИРОВАНИЕ КОРЗИНЫ */
+.form-footer-action {
+  position: absolute;
+  bottom: 42px; /* Приподняли, чтобы вектор стоял симметрично */
+  right: 25px;
+  margin: 0;
+  z-index: 10;
+}
+
+/* САМА КНОПКА-КОРЗИНА (БЕЗ РАМОК И ФОНА) */
+.btn-maker-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent !important;
+  border: none !important;
+  padding: 0;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  transition:
+    transform var(--transition),
+    filter var(--transition);
+}
+
+/* САМА ИКОНКА ВНУТРИ КНОПКИ */
+.btn-maker-cart img {
+  width: 42px; /* Наш сочный крупный вектор без коробки */
+  height: auto;
+  object-fit: contain;
+  opacity: 0.8;
+  filter: drop-shadow(0 0 2px rgba(0, 210, 255, 0.3));
+  transition:
+    opacity var(--transition),
+    filter var(--transition);
+}
+
+.btn-maker-cart:hover {
+  transform: scale(1.1);
+}
+
+.btn-maker-cart:hover img {
+  opacity: 1;
+  filter: drop-shadow(0 0 12px var(--neon-blue)) brightness(1.4);
+}
+
+.cyber-footer {
+  display: flex;
+  justify-content: space-between; /* Разносит логотип влево, слоган в центр, соцсети вправо */
+  align-items: center;
+
+  width: 100%;
+  padding: 35px 10px;
+  margin-top: 100px; /* Отступ от конструктора, чтобы блоки не слипались */
+  margin-bottom: 20px;
+
+  /* Верхняя синяя неоновая линия-разделитель в стиле хедера */
+  border-top: 2px solid var(--neon-blue);
+}
+
+/* Левый блок с логотипом-дескриптором */
+.footer-logo-block {
+  display: flex;
+  align-items: center;
+}
+
+/* Центральный серый слоган */
+.footer-slogan {
+  font-family: var(--font-body), sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+/* Правый блок социальных сетей */
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.footer-socials a {
+  display: block;
+  transition: transform var(--transition);
+}
+
+.footer-socials img {
+  display: block;
+  width: 22px; /* Фиксированный аккуратный размер векторов */
+  height: auto;
+  object-fit: contain;
+  opacity: 0.7;
+  transition:
+    opacity var(--transition),
+    filter var(--transition);
+}
+
+/* Эффект ховера: иконки приподнимаются и вспыхивают голубым */
+.footer-socials a:hover {
+  transform: translateY(-2px);
+}
+
+.footer-socials a:hover img {
+  opacity: 1;
+}
+
+/* ==========================================
+   КАСТОМНОЕ КИБЕР-УВЕДОМЛЕНИЕ (TOAST)
+   ========================================== */
+
+.cyber-toast {
+  position: fixed;
+  bottom: 30px; /* Будет плавно вылетать в правом нижнем углу экрана */
+  right: -400px; /* Изначально спрятана за краем монитора */
+
+  width: 350px;
+  background-color: #001021; /* Твой базовый темный цвет */
+  border: 1px solid var(--neon-blue);
+  border-radius: 4px;
+  padding: 16px 20px;
+
+  box-shadow:
+    var(--glow-blue),
+    inset 0 0 10px rgba(0, 210, 255, 0.2);
+  z-index: 9999; /* Всегда поверх всех элементов сайта */
+  transition:
+    right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    opacity 0.3s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Класс, который добавляется через React для анимации появления */
+.cyber-toast.visible {
+  right: 30px; /* Вылетает на экран */
+  opacity: 1;
+}
+
+/* Декоративная яркая неоновая полоска на верхнем торце плашки */
+.toast-glow-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--neon-green);
+  box-shadow: var(--glow-green);
+}
+
+.toast-text-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.toast-status {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 900;
+  color: var(--neon-green);
+  letter-spacing: 1px;
+}
+
+.toast-text-row p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.4;
+}
+
+.toast-text-row p span {
+  color: var(--neon-green);
+  font-weight: 800;
+}
+/* ==========================================
+   1.1 АДАПТИВНОСТЬ: ПЛАНШЕТЫ
+   ========================================== */
+
+@media (max-width: 1100px) {
+  .app-container {
+    padding-inline: 32px;
+  }
+
+  .header {
+    gap: 20px;
+    padding-inline: 24px;
+    margin-bottom: 50px;
+  }
+
+  .header-nav {
+    gap: 24px;
+  }
+
+  .header-nav p {
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+
+  .header-icons {
+    gap: 16px;
+  }
+
+  .hero-section {
+    min-height: 550px;
+    gap: 20px;
+  }
+
+  .hero-info {
+    margin-top: 0;
+  }
+
+  .hero-subtitle {
+    font-size: 20px;
+  }
+
+  .background-image .main-doner {
+    right: -20px;
+    width: 55%;
+  }
+}
+
+/* ==========================================
+   1.2 АДАПТИВНОСТЬ: МОБИЛЬНЫЕ
+   ========================================== */
+
+@media (max-width: 768px) {
+  .app-container {
+    padding-inline: 20px;
+  }
+
+  .header {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    min-height: auto;
+    gap: 18px;
+
+    padding: 18px;
+    margin-top: 16px;
+    margin-bottom: 35px;
+  }
+
+  .logo-container img {
+    width: 52px;
+  }
+
+  .header-nav {
+    order: 3;
+    flex: 1 0 100%;
+    justify-content: center;
+    gap: 16px 24px;
+  }
+
+  .header-nav p {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .header-icons {
+    gap: 14px;
+  }
+
+  .icon-svg-btn {
+    height: 32px;
+  }
+
+  .icon-svg-separator {
+    height: 38px;
+  }
+
+  .hero-section {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+
+    min-height: auto;
+    padding: 20px 0 0;
+  }
+
+  .hero-info {
+    flex: auto;
+    max-width: 100%;
+    margin-top: 0;
+  }
+
+  h1.hero-title {
+    font-size: clamp(28px, 6vw, 42px);
+    line-height: 1.25;
+    margin-bottom: 18px;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 26px;
+  }
+
+  button.btn-order {
+    padding: 16px 22px;
+    font-size: 16px;
+  }
+
+  button.btn-order span {
+    margin-inline: 4px;
+  }
+
+  .background-image {
+    width: 100%;
+    min-height: 300px;
+  }
+
+  .background-image .main-doner {
+    right: 0;
+    bottom: 0;
+    width: min(75%, 380px);
+  }
+
+  .menu-section {
+    margin-top: 40px;
+    margin-bottom: 55px;
+  }
+
+  .menu-section-title {
+    font-size: clamp(24px, 5vw, 32px);
+  }
+
+  .menu-section hr.neon-line-blue:last-of-type {
+    margin-bottom: 30px;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+    gap: 20px;
+  }
+
+  .menu-card {
+    padding: 20px;
+  }
+  .why-section {
+    margin-block: 60px;
+  }
+  .section-title-neon .subtitle-text {
+    display: block;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  .advantages-grid {
+    grid-template-columns: 1fr; /* На мобилках возвращаем в одну колонку, но с красивыми отступами */
+    gap: 40px;
+  }
+}
+
+/* ==========================================
+   1.3 АДАПТИВНОСТЬ: УЗКИЕ ЭКРАНЫ
+   ========================================== */
+
+@media (max-width: 420px) {
+  .app-container {
+    padding-inline: 14px;
+  }
+
+  .header {
+    padding: 14px;
+  }
+
+  .header-nav {
+    gap: 14px;
+  }
+
+  .header-nav p {
+    font-size: 10px;
+  }
+
+  .header-icons {
+    gap: 10px;
+  }
+
+  .icon-svg-btn {
+    height: 28px;
+  }
+
+  .icon-svg-separator {
+    height: 32px;
+  }
+
+  h1.hero-title {
+    font-size: 27px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+
+  button.btn-order {
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+
+  .background-image {
+    min-height: 240px;
+  }
+
+  .menu-card {
+    padding: 18px;
+  }
+
+  .card-title {
+    font-size: 19px;
+  }
+
+  .card-price {
+    font-size: 21px;
+  }
+}
+
+/* ==========================================
+   1.4 ДОСТУПНОСТЬ
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "title": "sci-fi бургер",
+    "separator": "hr-2",
+    "badge": "HOT 🔥",
+    "badgeType": "hot",
+    "price": 690,
+    "icon": "🍔",
+    "image": "/img/menu-burger.png",
+    "description": "говядина, чедер, карамелизированный лук, фирменный соус NEO-BITE "
+  },
+  {
+    "id": 2,
+    "title": "neon noodles",
+    "separator": "hr-2",
+    "badge": "ENERGY+",
+    "badgeType": "energy",
+    "price": 550,
+    "icon": "🥢",
+    "image": "/img/menu-noodles.png",
+    "description": "яичная лапша, овощи, соус терияки, кунжут, зеленый лук"
+  },
+  {
+    "id": 3,
+    "title": "futur-fries",
+    "separator": "hr-2",
+    "badge": "HOT 🔥",
+    "badgeType": "hot",
+    "price": 390,
+    "icon": "🍟",
+    "image": "/img/menu-fries.png",
+    "description": "картофель фри, сырный соус, неоновый соус"
+  }
+]

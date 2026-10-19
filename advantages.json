@@ -5,12 +5,12 @@
     "desc": "БЫСТРО. БЕЗОПАСНО. НАШИ РОБОТЫ ДОСТАВЛЯЮТ ЕДУ В ЛЮБУЮ ТОЧКУ ТВОЕГО ГОРОДА."
   },
   {
-    "icon": "/vector-elements/lab-icon.svg",
+    "icon": "./vector-elements/lab-icon.svg",
     "title": "ЛАБОРАТОРИЯ ВКУСА",
     "desc": "СОБСТВЕННАЯ СИНТЕТИЧЕСКАЯ ЛАБОРАТОРИЯ. КОНТРОЛЬ КАЧЕСТВА НА КАЖДОМ ЭТАПЕ ПРИГОТОВЛЕНИЯ."
   },
   {
-    "icon": "/vector-elements/chef-robot-icon.svg",
+    "icon": "./vector-elements/chef-robot-icon.svg",
     "title": "ШЕФ-РОБОТ",
     "desc": "ИДЕАЛЬНАЯ ТЕМПЕРАТУРА. ТОЧНЫЕ РЕЦЕПТЫ. ВСЕГДА БЕЗУПРЕЧНЫЙ ВКУС."
   }
